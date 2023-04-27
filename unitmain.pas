@@ -17,17 +17,17 @@ type
     ButtonCopy: TButton;
     ButtonSave: TButton;
     ButtonStop: TButton;
-    CheckBoxCRC32: TCheckBox;
-    CheckBoxMD5: TCheckBox;
-    CheckBoxSHA1: TCheckBox;
-    CheckBoxSHA256: TCheckBox;
-    CheckBoxSHA512: TCheckBox;
-    LabelFinish: TLabel;
-    LabelCurrent: TLabel;
-    LabelLogger: TLabel;
+    ButtonPerformance: TButton;
     MemoLogger: TMemo;
-    ProgressBarFinish: TProgressBar;
-    ProgressBarCurrent: TProgressBar;
+    OpenDialog: TOpenDialog;
+    SaveDialog: TSaveDialog;
+    procedure ButtonBrowseClick(Sender: TObject);
+    procedure ButtonClearClick(Sender: TObject);
+    procedure ButtonCopyClick(Sender: TObject);
+    procedure ButtonSaveClick(Sender: TObject);
+    procedure ButtonStopClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
   private
 
   public
@@ -40,6 +40,45 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TFormMain }
+
+procedure TFormMain.FormCreate(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.FormDropFiles(Sender: TObject;
+  const FileNames: array of string);
+begin
+
+end;
+
+procedure TFormMain.ButtonBrowseClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.ButtonClearClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.ButtonCopyClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.ButtonSaveClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.ButtonStopClick(Sender: TObject);
+begin
+
+end;
+
 
 end.
 

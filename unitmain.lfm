@@ -1,12 +1,17 @@
 object FormMain: TFormMain
-  Left = 477
-  Height = 563
-  Top = 209
-  Width = 977
+  Left = 569
+  Height = 425
+  Top = 1199
+  Width = 995
+  AllowDropFiles = True
+  BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'ry-hash v1.0 / Lofanmi'
-  ClientHeight = 563
-  ClientWidth = 977
+  ClientHeight = 425
+  ClientWidth = 995
   DesignTimePPI = 192
+  OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
+  Position = poDesktopCenter
   LCLVersion = '2.2.6.0'
   object ButtonBrowse: TButton
     Left = 24
@@ -14,14 +19,15 @@ object FormMain: TFormMain
     Top = 352
     Width = 150
     Caption = '浏览...'
+    OnClick = ButtonBrowseClick
     TabOrder = 0
   end
   object MemoLogger: TMemo
     Left = 24
     Height = 312
     Top = 24
-    Width = 932
-    ScrollBars = ssAutoVertical
+    Width = 950
+    ScrollBars = ssAutoBoth
     TabOrder = 1
   end
   object ButtonClear: TButton
@@ -30,6 +36,7 @@ object FormMain: TFormMain
     Top = 352
     Width = 150
     Caption = '清除'
+    OnClick = ButtonClearClick
     TabOrder = 2
   end
   object ButtonCopy: TButton
@@ -38,6 +45,7 @@ object FormMain: TFormMain
     Top = 352
     Width = 150
     Caption = '复制'
+    OnClick = ButtonCopyClick
     TabOrder = 3
   end
   object ButtonSave: TButton
@@ -46,6 +54,7 @@ object FormMain: TFormMain
     Top = 352
     Width = 150
     Caption = '保存'
+    OnClick = ButtonSaveClick
     TabOrder = 4
   end
   object ButtonStop: TButton
@@ -54,86 +63,26 @@ object FormMain: TFormMain
     Top = 352
     Width = 150
     Caption = '停止'
+    OnClick = ButtonStopClick
     TabOrder = 5
   end
-  object CheckBoxCRC32: TCheckBox
-    Left = 832
-    Height = 35
+  object ButtonPerformance: TButton
+    Left = 824
+    Height = 50
     Top = 352
-    Width = 112
-    Caption = 'CRC32'
+    Width = 150
+    Caption = '性能'
+    OnClick = ButtonStopClick
     TabOrder = 6
   end
-  object CheckBoxMD5: TCheckBox
+  object OpenDialog: TOpenDialog
+    Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
+    Left = 672
+    Top = 192
+  end
+  object SaveDialog: TSaveDialog
+    DefaultExt = '.txt'
     Left = 832
-    Height = 35
-    Top = 392
-    Width = 91
-    Caption = 'MD5'
-    TabOrder = 7
-  end
-  object CheckBoxSHA1: TCheckBox
-    Left = 832
-    Height = 35
-    Top = 432
-    Width = 100
-    Caption = 'SHA1'
-    TabOrder = 8
-  end
-  object CheckBoxSHA256: TCheckBox
-    Left = 832
-    Height = 35
-    Top = 472
-    Width = 128
-    Caption = 'SHA256'
-    TabOrder = 9
-  end
-  object CheckBoxSHA512: TCheckBox
-    Left = 832
-    Height = 35
-    Top = 512
-    Width = 128
-    Caption = 'SHA512'
-    TabOrder = 10
-  end
-  object LabelFinish: TLabel
-    Left = 24
-    Height = 31
-    Top = 513
-    Width = 72
-    Caption = '完成：'
-    ParentColor = False
-  end
-  object ProgressBarFinish: TProgressBar
-    Left = 96
-    Height = 32
-    Top = 512
-    Width = 718
-    Position = 76
-    TabOrder = 11
-  end
-  object ProgressBarCurrent: TProgressBar
-    Left = 96
-    Height = 32
-    Top = 464
-    Width = 718
-    Position = 76
-    TabOrder = 12
-  end
-  object LabelCurrent: TLabel
-    Left = 24
-    Height = 31
-    Top = 465
-    Width = 72
-    Caption = '进度：'
-    ParentColor = False
-  end
-  object LabelLogger: TLabel
-    Left = 24
-    Height = 31
-    Top = 416
-    Width = 18
-    Caption = '...'
-    ParentColor = False
+    Top = 192
   end
 end
