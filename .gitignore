@@ -24,3 +24,4 @@ go.work
 ui/backup
 .DS_Store
 ryHash
+ryHash.app
