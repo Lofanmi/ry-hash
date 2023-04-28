@@ -19,8 +19,6 @@ import (
 	"github.com/dustin/go-humanize"
 	"github.com/ying32/govcl/vcl"
 	"github.com/ying32/govcl/vcl/types"
-
-	"github.com/Lofanmi/ry-hash/service"
 )
 
 type HashAlg struct {
@@ -208,9 +206,9 @@ func (f *TFormMain) hashFile(filename string, hashAlgList []HashAlg) {
 	}
 	res := map[string]string{}
 	finish := make(chan struct{})
-	mapFileHash := map[string]*service.FileHash{}
+	mapFileHash := map[string]*FileHash{}
 	for _, hashAlg := range hashAlgList {
-		fileHash, _ := service.NewFileHash(filename)
+		fileHash, _ := NewFileHash(filename)
 		mapFileHash[hashAlg.Name] = fileHash
 	}
 

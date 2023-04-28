@@ -1,1 +1,0 @@
-go build -o "ry-hash.exe" -buildmode=exe -ldflags="-H windowsgui -w -s" -tags="tempdll" .\ui\
