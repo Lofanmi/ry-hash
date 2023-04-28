@@ -17,6 +17,8 @@ uses
 
 begin
   RequireDerivedFormResource:=True;
+  Application.Title:='ryHash - 速度飞快的文件哈希工具 v1.0 - https:'
+    +'//imlht.com';
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TFormMain, FormMain);

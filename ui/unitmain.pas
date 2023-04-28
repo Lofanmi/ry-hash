@@ -17,10 +17,11 @@ type
     ButtonCopy: TButton;
     ButtonSave: TButton;
     ButtonStop: TButton;
-    ButtonPerformance: TButton;
+    ButtonAbout: TButton;
     MemoLogger: TMemo;
     OpenDialog: TOpenDialog;
     SaveDialog: TSaveDialog;
+    procedure ButtonAboutClick(Sender: TObject);
     procedure ButtonBrowseClick(Sender: TObject);
     procedure ButtonClearClick(Sender: TObject);
     procedure ButtonCopyClick(Sender: TObject);
@@ -55,6 +56,11 @@ begin
 end;
 
 procedure TFormMain.ButtonBrowseClick(Sender: TObject);
+begin
+
+end;
+
+procedure TFormMain.ButtonAboutClick(Sender: TObject);
 begin
 
 end;

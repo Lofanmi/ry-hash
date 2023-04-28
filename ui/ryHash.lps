@@ -9,7 +9,7 @@
         <Filename Value="ryHash.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="64"/>
+        <UsageCount Value="65"/>
       </Unit>
       <Unit>
         <Filename Value="unitmain.pas"/>
@@ -19,9 +19,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="unitMain"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="43"/>
-        <CursorPos X="3" Y="63"/>
-        <UsageCount Value="64"/>
+        <TopLine Value="45"/>
+        <CursorPos X="94" Y="74"/>
+        <UsageCount Value="65"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -32,7 +32,7 @@
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="25">
+    <JumpHistory HistoryIndex="26">
       <Position>
         <Filename Value="unitmain.pas"/>
       </Position>
@@ -135,6 +135,10 @@
       <Position>
         <Filename Value="unitmain.pas"/>
         <Caret Line="62" Column="3" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="unitmain.pas"/>
+        <Caret Line="63" Column="3" TopLine="43"/>
       </Position>
     </JumpHistory>
     <RunParams>
