@@ -1,13 +1,17 @@
 object FormMain: TFormMain
-  Left = 569
+  Left = 491
   Height = 425
-  Top = 1199
+  Top = 1212
   Width = 995
   AllowDropFiles = True
   BorderIcons = [biSystemMenu, biMinimize]
-  Caption = 'ry-hash v1.0 / Lofanmi'
+  Caption = 'ryHash - 速度飞快的文件哈希工具 v1.0 - https://imlht.com'
   ClientHeight = 425
   ClientWidth = 995
+  Constraints.MaxHeight = 425
+  Constraints.MaxWidth = 995
+  Constraints.MinHeight = 425
+  Constraints.MinWidth = 995
   DesignTimePPI = 192
   OnCreate = FormCreate
   OnDropFiles = FormDropFiles
@@ -66,13 +70,13 @@ object FormMain: TFormMain
     OnClick = ButtonStopClick
     TabOrder = 5
   end
-  object ButtonPerformance: TButton
+  object ButtonAbout: TButton
     Left = 824
     Height = 50
     Top = 352
     Width = 150
-    Caption = '性能'
-    OnClick = ButtonStopClick
+    Caption = '关于'
+    OnClick = ButtonAboutClick
     TabOrder = 6
   end
   object OpenDialog: TOpenDialog

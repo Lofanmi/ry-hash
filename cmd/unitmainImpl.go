@@ -58,6 +58,8 @@ type TFormMainFields struct {
 }
 
 func (f *TFormMain) initComponents() {
+	f.Constraints().SetMinHeight(0)
+	f.Constraints().SetMaxHeight(0)
 	f.MapProgressBar = map[string]*vcl.TProgressBar{}
 	f.MapCheckBox = map[string]*vcl.TCheckBox{}
 	var (
@@ -98,8 +100,9 @@ func (f *TFormMain) initComponents() {
 	f.LabelFinish.SetCaption("就绪")
 	f.LabelFinish.SetLeft(832)
 	f.LabelFinish.SetTop(topCheckBox)
-
 	f.SetHeight(f.Height() + step*int32(1+len(hashAlgConfigList)))
+	f.Constraints().SetMinHeight(types.TConstraintSize(f.Height()))
+	f.Constraints().SetMaxHeight(types.TConstraintSize(f.Height()))
 }
 
 func (f *TFormMain) hashAlgList() []HashAlg {
@@ -168,6 +171,11 @@ func (f *TFormMain) OnFormDropFiles(sender vcl.IObject, fileNames []string) {
 	f.hashFileList(fileNames)
 }
 
+func (f *TFormMain) OnButtonAboutClick(sender vcl.IObject) {
+	message := "ryHash - 速度飞快的文件哈希工具 v1.0\r\n作者博客: https://imlht.com\r\n项目主页: https://github.com/Lofanmi/ry-hash"
+	vcl.MessageDlg(message, types.MtInformation, types.MbOK)
+}
+
 func (f *TFormMain) hashFileList(fileNames []string) {
 	f.ButtonStop.SetEnabled(true)
 	f.Stopped = false
@@ -178,6 +186,7 @@ func (f *TFormMain) hashFileList(fileNames []string) {
 		bar.SetPosition(0)
 	}
 	f.ProgressBarFinish.SetPosition(0)
+	f.LabelFinish.SetCaption(fmt.Sprintf("%d / %d", 0, length))
 	for i, filename := range fileNames {
 		f.hashFile(filename, hashAlgList)
 		position := f.ProgressBarFinish.Position() + int32(step)
