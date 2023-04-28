@@ -2,7 +2,7 @@ github.com/dustin/go-humanize v1.0.1 h1:GzkhY7T5VNhEkwH0PVJgjz+fX1rhBrR7pRT3mDkp
 github.com/dustin/go-humanize v1.0.1/go.mod h1:Mu1zIs6XwVuF/gI1OepvI0qD18qycQx+mFykh5fBlto=
 github.com/ying32/dylib v0.0.0-20220227124818-fdf9ea9fbc96 h1:+kU/yXSAQPL4G7OQOxz/j62GdM+G5yd5J1/NNm7u3QI=
 github.com/ying32/dylib v0.0.0-20220227124818-fdf9ea9fbc96/go.mod h1:WPBTfbqg/aA1xqHFPB4fgBHETq/G/75yErbnexmaEOo=
-github.com/ying32/govcl v2.2.0+incompatible h1:TZFn0SUuZaufZ+U7Urs9o1ZmbflsCPQcswz1bo22w9s=
-github.com/ying32/govcl v2.2.0+incompatible/go.mod h1:yZVtbJ9Md1nAVxtHKIriKZn4K6TQYqI1en3sN/m9FJ8=
+github.com/ying32/govcl v2.2.1-0.20221203062923-f46019ebf7a2+incompatible h1:mM9kJndIy5gGs3+BBBck3M9o0BidFethBgOyv12QgY8=
+github.com/ying32/govcl v2.2.1-0.20221203062923-f46019ebf7a2+incompatible/go.mod h1:yZVtbJ9Md1nAVxtHKIriKZn4K6TQYqI1en3sN/m9FJ8=
 github.com/ying32/liblclbinres v0.0.0-20220111074620-df670ba4baf4 h1:g6QaezInPib6PtPzh4w1qEzQPD4bT3zbX8dfBCSFqYM=
 github.com/ying32/liblclbinres v0.0.0-20220111074620-df670ba4baf4/go.mod h1:oEmgAOPt+dALMzap3HgEQnaN+iCLE7m3C867jERInaI=

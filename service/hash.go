@@ -93,18 +93,24 @@ func (r *FileHash) copyBuffer(dst io.Writer, src io.Reader, buf []byte) (written
 
 func (r *FileHash) bufSize() int {
 	const MB = 1024 * 1024
-	size := r.FileInfo.Size()
-	if size <= MB {
-		return MB
-	}
-	if size <= 32*MB {
-		return 8 * MB
-	}
-	if size <= 128*MB {
-		return 16 * MB
-	}
-	if size <= 512*MB {
-		return 32 * MB
-	}
-	return 64 * MB
+	// size := r.FileInfo.Size()
+	// if size <= MB {
+	// 	return MB
+	// }
+	// if size <= 32*MB {
+	// 	return 8 * MB
+	// }
+	// if size <= 128*MB {
+	// 	return 16 * MB
+	// }
+	// if size <= 512*MB {
+	// 	return 32 * MB
+	// }
+	// if size <= 2048*MB {
+	// 	return 64 * MB
+	// }
+	// if size <= 4096*MB {
+	// 	return 128 * MB
+	// }
+	return MB
 }

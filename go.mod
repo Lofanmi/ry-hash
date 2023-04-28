@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/dustin/go-humanize v1.0.1
-	github.com/ying32/govcl v2.2.0+incompatible
+	github.com/ying32/govcl v2.2.1-0.20221203062923-f46019ebf7a2+incompatible
 )
 
 require (
