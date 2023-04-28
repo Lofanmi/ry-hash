@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"hash"
 	"hash/crc32"
+	"hash/fnv"
 	"os"
 	"runtime"
 	"strings"
@@ -34,11 +35,17 @@ type hashAlgConfig struct {
 }
 
 var hashAlgConfigList = []hashAlgConfig{
-	{Name: "CRC32", HashFn: func() hash.Hash { return crc32.NewIEEE() }, Enabled: true},
-	{Name: "MD5", HashFn: func() hash.Hash { return md5.New() }, Enabled: true},
-	{Name: "SHA1", HashFn: func() hash.Hash { return sha1.New() }, Enabled: true},
-	{Name: "SHA256", HashFn: func() hash.Hash { return sha256.New() }, Enabled: true},
-	{Name: "SHA512", HashFn: func() hash.Hash { return sha512.New() }, Enabled: false},
+	{Name: "crc32", HashFn: func() hash.Hash { return crc32.NewIEEE() }, Enabled: true},
+	{Name: "md5", HashFn: func() hash.Hash { return md5.New() }, Enabled: true},
+	{Name: "sha1", HashFn: func() hash.Hash { return sha1.New() }, Enabled: true},
+	{Name: "sha256", HashFn: func() hash.Hash { return sha256.New() }, Enabled: true},
+	{Name: "sha512", HashFn: func() hash.Hash { return sha512.New() }, Enabled: false},
+	{Name: "fnv1/32", HashFn: func() hash.Hash { return fnv.New32() }, Enabled: false},
+	{Name: "fnv1a/32", HashFn: func() hash.Hash { return fnv.New32a() }, Enabled: false},
+	{Name: "fnv1/64", HashFn: func() hash.Hash { return fnv.New64() }, Enabled: false},
+	{Name: "fnv1a/64", HashFn: func() hash.Hash { return fnv.New64a() }, Enabled: false},
+	{Name: "fnv1/128", HashFn: func() hash.Hash { return fnv.New128() }, Enabled: false},
+	{Name: "fnv1a/128", HashFn: func() hash.Hash { return fnv.New128a() }, Enabled: false},
 }
 
 // TFormMainFields
@@ -191,6 +198,7 @@ func (f *TFormMain) hashFileList(fileNames []string) {
 }
 
 func (f *TFormMain) hashFile(filename string, hashAlgList []HashAlg) {
+	t := time.Now()
 	fileInfo, err := os.Stat(filename)
 	if errors.Is(err, os.ErrNotExist) {
 		return
@@ -222,7 +230,10 @@ func (f *TFormMain) hashFile(filename string, hashAlgList []HashAlg) {
 					return
 				}
 				mu.Lock()
-				res[alg.Name] = strings.ToUpper(s)
+				t2 := time.Since(t)
+				res[alg.Name] = fmt.Sprintf("%s [elapsed=%s] [speed=%s/s]", s, t2,
+					humanize.IBytes(uint64(float64(fileInfo.Size())/t2.Seconds())),
+				)
 				mu.Unlock()
 			}(hashAlg)
 		}
@@ -265,5 +276,7 @@ showResult:
 			info.WriteString(fmt.Sprintf("%s: %s\r\n", hashAlg.Name, s))
 		}
 	}
+	info.WriteString(fmt.Sprintf("总耗时: %s\r\n", time.Since(t)))
+	info.WriteString(fmt.Sprintf("平均速度: %s/s\r\n", humanize.IBytes(uint64(float64(fileInfo.Size())/time.Since(t).Seconds()))))
 	f.MemoLogger.Lines().Add(info.String())
 }

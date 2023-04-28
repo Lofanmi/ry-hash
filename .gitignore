@@ -22,3 +22,5 @@ go.work
 .idea
 .vscode
 backup
+ry-hash
+.DS_Store
