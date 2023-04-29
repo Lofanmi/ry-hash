@@ -40,6 +40,7 @@ func (r *FileHash) Hash(h hash.Hash) (s string, err error) {
 	if _, err = r.File.Seek(0, 0); err != nil {
 		return
 	}
+	h.Reset()
 	r.ProgressRecorder.Reset()
 	if _, err = r.copyBuffer(h, r.File, buf); err != nil {
 		if err == errStop {
