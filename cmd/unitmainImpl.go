@@ -283,7 +283,7 @@ showResult:
 			info.WriteString(fmt.Sprintf("%s: %s\r\n", hashAlg.Name, s))
 		}
 	}
-	info.WriteString(fmt.Sprintf("总耗时: %s\r\n", time.Since(t)))
-	info.WriteString(fmt.Sprintf("平均速度: %s/s\r\n", humanize.IBytes(uint64(float64(fileInfo.Size())/time.Since(t).Seconds()))))
+	info.WriteString(fmt.Sprintf("耗时: %s\r\n", time.Since(t)))
+	info.WriteString(fmt.Sprintf("速度: %s/s\r\n", humanize.IBytes(uint64(float64(fileInfo.Size())/time.Since(t).Seconds()))))
 	f.MemoLogger.Lines().Add(info.String())
 }
