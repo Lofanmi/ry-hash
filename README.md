@@ -40,6 +40,9 @@
 - Linux：请自行编译
 
 > 注：macOS M1 芯片存在使用几分钟后闪退问题，目前无解。
+> 
+> 如果提示 「文件已损坏请移至废纸篓」或「来自身份不明的开发者」请使用以下命令：
+> xattr -dr com.apple.quarantine /Applications/ryHash.app
 
 哈希算法（可扩充）：
 - crc32
