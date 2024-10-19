@@ -1,0 +1,99 @@
+object FormMain: TFormMain
+  Left = 0
+  Height = 212
+  Top = 785
+  Width = 498
+  AllowDropFiles = True
+  BorderIcons = [biSystemMenu, biMinimize]
+  Caption = 'ryHash - 速度飞快的文件哈希工具 v1.0 - https://imlht.com'
+  ClientHeight = 212
+  ClientWidth = 498
+  Constraints.MaxHeight = 212
+  Constraints.MaxWidth = 498
+  Constraints.MinHeight = 212
+  Constraints.MinWidth = 498
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDropFiles = FormDropFiles
+  Position = poDesktopCenter
+  LCLVersion = '3.6.0.0'
+  object ButtonBrowse: TButton
+    Left = 12
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '浏览...'
+    TabOrder = 0
+    OnClick = ButtonBrowseClick
+  end
+  object MemoLogger: TMemo
+    Left = 12
+    Height = 156
+    Top = 12
+    Width = 475
+    ScrollBars = ssAutoBoth
+    TabOrder = 1
+  end
+  object ButtonClear: TButton
+    Left = 92
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '清除'
+    TabOrder = 2
+    OnClick = ButtonClearClick
+  end
+  object ButtonCopy: TButton
+    Left = 172
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '复制'
+    TabOrder = 3
+    OnClick = ButtonCopyClick
+  end
+  object ButtonSave: TButton
+    Left = 252
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '保存'
+    TabOrder = 4
+    OnClick = ButtonSaveClick
+  end
+  object ButtonStop: TButton
+    Left = 332
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '停止'
+    TabOrder = 5
+    OnClick = ButtonStopClick
+  end
+  object ButtonAbout: TButton
+    Left = 412
+    Height = 25
+    Top = 176
+    Width = 75
+    Caption = '关于'
+    TabOrder = 6
+    OnClick = ButtonAboutClick
+  end
+  object OpenDialog: TOpenDialog
+    Options = [ofAllowMultiSelect, ofEnableSizing, ofViewDetail]
+    Left = 336
+    Top = 96
+  end
+  object SaveDialog: TSaveDialog
+    DefaultExt = '.txt'
+    Left = 416
+    Top = 96
+  end
+  object TimerUpdatePosition: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = TimerUpdatePositionTimer
+    Left = 416
+    Top = 20
+  end
+end
